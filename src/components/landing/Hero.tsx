@@ -71,6 +71,16 @@ const Hero = () => {
             </div>
             <div className="text-2xl font-display font-bold text-foreground">2.341 ev/s</div>
           </div>
+          {/* Center floating alert */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-card border border-destructive/40 rounded-xl px-4 py-3 shadow-elegant animate-float backdrop-blur-md flex items-center gap-3" style={{ animationDelay: '0.8s' }}>
+            <div className="w-9 h-9 rounded-lg bg-destructive/15 grid place-items-center">
+              <AlertTriangle className="w-4 h-4 text-destructive" strokeWidth={2.5} />
+            </div>
+            <div className="text-left">
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Alerta IA</div>
+              <div className="text-sm font-display font-bold text-foreground whitespace-nowrap">+3σ desviación</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
