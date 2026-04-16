@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, PlayCircle, Sparkles } from "lucide-react";
+import { ArrowRight, PlayCircle, Sparkles, AlertTriangle } from "lucide-react";
 import dashboardHero from "@/assets/dashboard-hero.jpg";
 
 const Hero = () => {
