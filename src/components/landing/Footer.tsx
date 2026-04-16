@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Twitter } from "lucide-react";
+import { Mail } from "lucide-react";
 import decyraLogo from "@/assets/decyra-logo.jpg";
 
 const Footer = () => {
@@ -20,13 +20,7 @@ const Footer = () => {
               Decisión y Era. La plataforma de toma de decisiones industriales basada en datos en tiempo real.
             </p>
             <div className="flex items-center gap-3 mt-5">
-              <a href="#" aria-label="LinkedIn" className="w-9 h-9 grid place-items-center rounded-lg border border-border hover:border-primary hover:text-primary transition-smooth">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="#" aria-label="Twitter" className="w-9 h-9 grid place-items-center rounded-lg border border-border hover:border-primary hover:text-primary transition-smooth">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="mailto:hola@decyra.io" aria-label="Email" className="w-9 h-9 grid place-items-center rounded-lg border border-border hover:border-primary hover:text-primary transition-smooth">
+              <a href="mailto:hola@decyra.es" aria-label="Email" className="w-9 h-9 grid place-items-center rounded-lg border border-border hover:border-primary hover:text-primary transition-smooth">
                 <Mail className="w-4 h-4" />
               </a>
             </div>
@@ -45,7 +39,7 @@ const Footer = () => {
           <div>
             <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider">Contacto</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>hola@decyra.io</li>
+              <li>hola@decyra.es</li>
               <li>+34 900 000 000</li>
               <li>Madrid · Bilbao</li>
             </ul>
