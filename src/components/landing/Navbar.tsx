@@ -1,17 +1,18 @@
 import { Button } from "@/components/ui/button";
-import { Activity } from "lucide-react";
+import decyraLogo from "@/assets/decyra-logo.jpg";
 
 const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border/50">
       <nav className="container mx-auto flex items-center justify-between h-16 px-6">
-        <a href="#" className="flex items-center gap-2 group">
-          <div className="relative w-9 h-9 rounded-lg bg-gradient-primary grid place-items-center shadow-glow">
-            <Activity className="w-5 h-5 text-primary-foreground" strokeWidth={2.5} />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight">
-            DECYRA
-          </span>
+        <a href="#" className="flex items-center gap-2 group" aria-label="DECYRA inicio">
+          <img
+            src={decyraLogo}
+            alt="Logo DECYRA"
+            width={140}
+            height={36}
+            className="h-9 w-auto object-contain"
+          />
         </a>
 
         <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">

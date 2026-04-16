@@ -1,4 +1,5 @@
-import { Activity, Mail, Linkedin, Twitter } from "lucide-react";
+import { Mail, Linkedin, Twitter } from "lucide-react";
+import decyraLogo from "@/assets/decyra-logo.jpg";
 
 const Footer = () => {
   return (
@@ -6,11 +7,14 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-14">
         <div className="grid md:grid-cols-4 gap-10 mb-10">
           <div className="md:col-span-2">
-            <a href="#" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-gradient-primary grid place-items-center shadow-glow">
-                <Activity className="w-5 h-5 text-primary-foreground" strokeWidth={2.5} />
-              </div>
-              <span className="font-display font-bold text-xl">DECYRA</span>
+            <a href="#" className="flex items-center gap-2 mb-4" aria-label="DECYRA inicio">
+              <img
+                src={decyraLogo}
+                alt="Logo DECYRA"
+                width={160}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
             </a>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
               Decisión y Era. La plataforma de toma de decisiones industriales basada en datos en tiempo real.
