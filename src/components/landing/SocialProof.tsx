@@ -29,12 +29,17 @@ const SocialProof = () => {
           Equipos industriales que ya deciden con DECYRA
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center max-w-5xl mx-auto mb-20 opacity-60">
-          {logos.map((l) => (
-            <div key={l} className="text-center font-display text-sm font-bold tracking-widest text-muted-foreground hover:text-foreground transition-smooth">
-              {l}
-            </div>
-          ))}
+        <div className="relative max-w-5xl mx-auto mb-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+          <div className="flex gap-16 animate-marquee whitespace-nowrap">
+            {[...logos, ...logos].map((l, i) => (
+              <div
+                key={`${l}-${i}`}
+                className="font-display text-sm font-bold tracking-widest text-muted-foreground hover:text-foreground transition-smooth shrink-0"
+              >
+                {l}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">

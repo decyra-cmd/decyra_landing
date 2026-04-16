@@ -40,7 +40,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold mb-4 text-sm uppercase tracking-wider">Contacto</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>hola@decyra.es</li>
-              <li>+34 900 000 000</li>
+              <li>+34 690 135 219</li>
               <li>Madrid · Bilbao</li>
             </ul>
           </div>
