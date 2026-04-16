@@ -41,7 +41,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-muted-foreground">
               <li>hola@decyra.es</li>
               <li>+34 690 135 219</li>
-              <li>Madrid · Bilbao</li>
+              <li>Madrid · Córdoba</li>
             </ul>
           </div>
         </div>
