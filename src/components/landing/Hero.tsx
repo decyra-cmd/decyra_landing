@@ -67,7 +67,7 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-electric/10" />
 
             {/* macOS-style window with dashboard */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] md:w-[88%] animate-float">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[96%] md:w-[95%] max-w-[1100px] animate-float">
               <div className="absolute -inset-6 bg-gradient-primary opacity-40 blur-3xl rounded-3xl" />
               <div className="relative rounded-xl overflow-hidden border border-border/80 shadow-elegant glow-border bg-card">
                 {/* macOS title bar */}
