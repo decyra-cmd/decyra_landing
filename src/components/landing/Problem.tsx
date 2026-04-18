@@ -20,7 +20,7 @@ const pains = [
 
 const Problem = () => {
   return (
-    <section id="problema" className="relative py-24">
+    <section id="problema" className="relative py-0">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">El problema</span>
