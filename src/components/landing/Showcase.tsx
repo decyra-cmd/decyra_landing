@@ -217,17 +217,6 @@ const Showcase = () => {
                 );
               })}
 
-              {/* Progress indicator */}
-              <div className="absolute -bottom-2 left-0 flex gap-2">
-                {slides.map((_, i) => (
-                  <span
-                    key={i}
-                    className={`h-1 rounded-full transition-all duration-500 ${
-                      i === activeIndex ? "w-10 bg-primary" : "w-6 bg-border"
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
 
             {/* Right: image (crossfades) */}
