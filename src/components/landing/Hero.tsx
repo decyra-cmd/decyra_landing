@@ -51,7 +51,7 @@ const Hero = () => {
         </p>
 
         {/* Dashboard mockup */}
-        <div className="mt-16 relative max-w-6xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <div className="mt-16 relative max-w-4xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
           <div className="absolute -inset-4 bg-gradient-primary opacity-30 blur-3xl rounded-3xl" />
           <div className="relative rounded-2xl overflow-hidden border border-border shadow-elegant glow-border">
             <img
