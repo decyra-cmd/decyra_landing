@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import decyraLogo from "@/assets/decyra-logo.jpg";
+import DemoRequestDialog from "./DemoRequestDialog";
 
 const Navbar = () => {
   return (
@@ -22,9 +23,9 @@ const Navbar = () => {
           <a href="#beneficios" className="hover:text-foreground transition-smooth">Beneficios</a>
         </div>
 
-        <Button variant="hero" size="sm" asChild>
-          <a href="#cta">Solicitar demo</a>
-        </Button>
+        <DemoRequestDialog
+          trigger={<Button variant="hero" size="sm">Solicitar demo</Button>}
+        />
       </nav>
     </header>
   );
