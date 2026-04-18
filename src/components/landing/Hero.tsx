@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Sparkles, AlertTriangle } from "lucide-react";
 import dashboardHero from "@/assets/dashboard-hero.png";
+import factoryBg from "@/assets/factory-bg.jpg";
 import DemoRequestDialog from "./DemoRequestDialog";
 
 const Hero = () => {
@@ -50,42 +51,57 @@ const Hero = () => {
           Sin compromiso · Demo personalizada en 24h
         </p>
 
-        {/* Dashboard window mockup */}
+        {/* Factory background + Dashboard window mockup */}
         <div className="mt-16 relative max-w-6xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <div className="relative animate-float">
-            <div className="absolute -inset-6 bg-gradient-primary opacity-40 blur-3xl rounded-3xl" />
-            <div className="relative rounded-xl overflow-hidden border border-border/80 shadow-elegant glow-border bg-card">
-              {/* macOS title bar */}
-              <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/40 backdrop-blur-md border-b border-border">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-3 h-3 rounded-full bg-destructive/80" />
-                  <span className="w-3 h-3 rounded-full bg-accent/80" />
-                  <span className="w-3 h-3 rounded-full bg-primary/80" />
-                </div>
-                <div className="flex-1 flex justify-center">
-                  <div className="px-3 py-0.5 rounded-md bg-background/60 text-[10px] text-muted-foreground font-mono tracking-wide">
-                    decyra.app / centro-de-decisión
+          {/* Factory backdrop */}
+          <div className="relative rounded-3xl overflow-hidden border border-border shadow-elegant">
+            <img
+              src={factoryBg}
+              alt="Planta industrial con líneas de producción automatizadas"
+              width={1600}
+              height={1024}
+              className="w-full h-[520px] md:h-[680px] object-cover"
+            />
+            {/* Dark overlay for contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-electric/10" />
+
+            {/* macOS-style window with dashboard - reduced size */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[86%] md:w-[82%] max-w-[920px] animate-float">
+              <div className="absolute -inset-6 bg-gradient-primary opacity-40 blur-3xl rounded-3xl" />
+              <div className="relative rounded-xl overflow-hidden border border-border/80 shadow-elegant glow-border bg-card">
+                {/* macOS title bar */}
+                <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/40 backdrop-blur-md border-b border-border">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-3 h-3 rounded-full bg-destructive/80" />
+                    <span className="w-3 h-3 rounded-full bg-accent/80" />
+                    <span className="w-3 h-3 rounded-full bg-primary/80" />
                   </div>
+                  <div className="flex-1 flex justify-center">
+                    <div className="px-3 py-0.5 rounded-md bg-background/60 text-[10px] text-muted-foreground font-mono tracking-wide">
+                      decyra.app / centro-de-decisión
+                    </div>
+                  </div>
+                  <div className="w-12" />
                 </div>
-                <div className="w-12" />
+                {/* Dashboard image */}
+                <img
+                  src={dashboardHero}
+                  alt="Dashboard industrial DECYRA mostrando KPIs en tiempo real"
+                  width={1600}
+                  height={1024}
+                  className="w-full h-auto block"
+                />
               </div>
-              {/* Dashboard image */}
-              <img
-                src={dashboardHero}
-                alt="Dashboard industrial DECYRA mostrando KPIs en tiempo real"
-                width={1600}
-                height={1024}
-                className="w-full h-auto block"
-              />
             </div>
           </div>
 
           {/* Floating stat cards */}
-          <div className="hidden md:block absolute -left-6 top-[18%] bg-gradient-card border border-border rounded-xl p-4 shadow-card animate-float backdrop-blur-md z-10">
+          <div className="hidden md:block absolute left-[4%] top-[20%] bg-gradient-card border border-border rounded-xl p-4 shadow-card animate-float backdrop-blur-md z-10">
             <div className="text-xs text-muted-foreground">OEE Planta</div>
             <div className="text-2xl font-display font-bold text-primary">+18.4%</div>
           </div>
-          <div className="hidden md:block absolute -right-6 bottom-[18%] bg-gradient-card border border-border rounded-xl p-4 shadow-card animate-float backdrop-blur-md z-10" style={{ animationDelay: '1.5s' }}>
+          <div className="hidden md:block absolute right-[4%] bottom-[20%] bg-gradient-card border border-border rounded-xl p-4 shadow-card animate-float backdrop-blur-md z-10" style={{ animationDelay: '1.5s' }}>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
               <span className="text-xs text-muted-foreground">Tiempo real</span>
@@ -93,7 +109,7 @@ const Hero = () => {
             <div className="text-2xl font-display font-bold text-foreground">2.341 ev/s</div>
           </div>
           {/* Floating alert (top-right of window) */}
-          <div className="hidden md:flex absolute right-[-1rem] top-[-1rem] bg-gradient-card border border-destructive/40 rounded-xl px-4 py-3 shadow-elegant animate-float backdrop-blur-md items-center gap-3 z-10" style={{ animationDelay: '0.8s' }}>
+          <div className="hidden md:flex absolute right-[6%] top-[8%] bg-gradient-card border border-destructive/40 rounded-xl px-4 py-3 shadow-elegant animate-float backdrop-blur-md items-center gap-3 z-10" style={{ animationDelay: '0.8s' }}>
             <div className="w-9 h-9 rounded-lg bg-destructive/15 grid place-items-center">
               <AlertTriangle className="w-4 h-4 text-destructive" strokeWidth={2.5} />
             </div>
