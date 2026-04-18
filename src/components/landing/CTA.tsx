@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import DemoRequestDialog from "./DemoRequestDialog";
 
 const perks = ["Demo personalizada", "Sin compromiso", "Setup en días, no meses"];
 
@@ -21,11 +22,15 @@ const CTA = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button variant="hero" size="xl">
-                Solicitar demo <ArrowRight className="w-5 h-5" />
-              </Button>
-              <Button variant="outlineGlow" size="xl">
-                Hablar con ventas
+              <DemoRequestDialog
+                trigger={
+                  <Button variant="hero" size="xl">
+                    Solicitar demo <ArrowRight className="w-5 h-5" />
+                  </Button>
+                }
+              />
+              <Button variant="outlineGlow" size="xl" asChild>
+                <a href="mailto:hola@decyra.es">Hablar con ventas</a>
               </Button>
             </div>
 

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Sparkles, AlertTriangle } from "lucide-react";
 import dashboardHero from "@/assets/dashboard-hero.jpg";
+import DemoRequestDialog from "./DemoRequestDialog";
 
 const Hero = () => {
   return (
@@ -31,11 +32,13 @@ const Hero = () => {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-          <Button variant="hero" size="xl" asChild>
-            <a href="#cta">
-              Solicitar demo <ArrowRight className="w-5 h-5" />
-            </a>
-          </Button>
+          <DemoRequestDialog
+            trigger={
+              <Button variant="hero" size="xl">
+                Solicitar demo <ArrowRight className="w-5 h-5" />
+              </Button>
+            }
+          />
           <Button variant="outlineGlow" size="xl" asChild>
             <a href="#funcionalidades">
               <PlayCircle className="w-5 h-5" /> Ver cómo funciona
