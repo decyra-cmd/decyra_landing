@@ -20,7 +20,7 @@ const steps = [
 
 const Solution = () => {
   return (
-    <section id="solucion" className="relative py-24 overflow-hidden">
+    <section id="solucion" className="relative py-0 overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-glow opacity-40 blur-3xl" />
       <div className="container relative mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">

@@ -9,7 +9,7 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section id="beneficios" className="relative py-24 overflow-hidden">
+    <section id="beneficios" className="relative py-0 overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
       <div className="container relative mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
