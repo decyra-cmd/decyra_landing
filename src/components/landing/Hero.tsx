@@ -28,7 +28,7 @@ const Hero = () => {
         </h1>
 
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-          DECYRA centraliza tu SCADA, MES y sensores en un único Centro de Decisión.
+          DECYRA centraliza tus datos en un único Centro de Decisión.
           Menos hojas de cálculo, más impacto operativo.
         </p>
 

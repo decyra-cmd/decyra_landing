@@ -4,7 +4,7 @@ const features = [
   {
     icon: LayoutDashboard,
     title: "Centro de Decisión",
-    description: "Visualiza KPIs críticos de planta en tiempo real con dashboards configurables por rol.",
+    description: "Convierte datos en decisiones accionables, priorizadas por impacto económico en tiempo real.",
     tag: "Dashboard",
   },
   {
@@ -29,7 +29,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="funcionalidades" className="relative py-0">
+    <section id="funcionalidades" className="relative py-[95px]">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">Funcionalidades</span>

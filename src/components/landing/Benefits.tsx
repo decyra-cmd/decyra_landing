@@ -1,15 +1,47 @@
-import { Timer, TrendingUp, Target, Maximize2 } from "lucide-react";
+import { Activity, Timer, TrendingUp, Target, Maximize2, Zap } from "lucide-react";
 
 const benefits = [
-  { icon: Timer, value: "−40%", label: "Tiempo de análisis", description: "Menos horas en reportes, más en mejorar el proceso." },
-  { icon: TrendingUp, value: "+22%", label: "Eficiencia OEE", description: "Detecta cuellos de botella antes de que cuesten dinero." },
-  { icon: Target, value: "100%", label: "Decisiones con datos", description: "Adiós a la intuición. Hola a la evidencia." },
-  { icon: Maximize2, value: "∞", label: "Escalable a N plantas", description: "Despliega en una línea o en toda tu red industrial." },
+  {
+    icon: Timer,
+    value: "−35–55%",
+    label: "Downtime no planificado",
+    description: "Anticipamos la parada antes de que ocurra. Detección temprana de fallos.",
+  },
+  {
+    icon: TrendingUp,
+    value: "+12%",
+    label: "Eficiencia OEE",
+    description: "Aumentamos el OEE sin CAPEX: optimizando microparadas y cambios de formato.",
+  },
+  {
+    icon: Zap,
+    value: "15%",
+    label: "Reducción consumo energético",
+    description: "Detección de fugas, optimización de consumo por línea y turno y reporting automático huella de carbono.",
+  },
+  {
+    icon: Activity,
+    value: "−40%",
+    label: "Tiempo de análisis",
+    description: "Menos horas en Excel, más valor en la operación.",
+  },
+  {
+    icon: Target,
+    value: "100%",
+    label: "Decisiones con datos",
+    description: "Adiós a la intuición. Hola a la evidencia.",
+  },
+  {
+    icon: Maximize2,
+    value: "∞",
+    label: "Escalable a N plantas",
+    description: "Despliega en una línea o en toda tu red industrial.",
+  },
 ];
 
 const Benefits = () => {
   return (
-    <section id="beneficios" className="relative py-0 overflow-hidden">
+    <section id="beneficios" className="relative py-[95px] overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
       <div className="container relative mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -19,7 +51,7 @@ const Benefits = () => {
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        <div className="grid gap-6 max-w-6xl mx-auto sm:grid-cols-2 lg:grid-cols-3">
           {benefits.map((b, i) => (
             <div
               key={i}

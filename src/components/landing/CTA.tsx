@@ -6,7 +6,7 @@ const perks = ["Demo personalizada", "Sin compromiso", "Setup en días, no meses
 
 const CTA = () => {
   return (
-    <section id="cta" className="relative py-0">
+    <section id="cta" className="relative py-[95px]">
       <div className="container mx-auto px-6">
         <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-gradient-card border border-primary/30 p-12 md:p-16 text-center shadow-elegant">
           <div className="absolute inset-0 grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />

@@ -1,10 +1,16 @@
-import { Database, Clock, EyeOff } from "lucide-react";
+import { Layers, Archive, Clock, EyeOff } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const pains = [
   {
-    icon: Database,
-    title: "Datos dispersos",
+    icon: Layers,
+    title: "Silos de información",
     description: "SCADA, MES, ERP, hojas de cálculo... Tu información vive en silos imposibles de cruzar.",
+  },
+  {
+    icon: Archive,
+    title: "Datos sin explotar",
+    description: "73% de los datos industriales jamás se analiza.",
   },
   {
     icon: Clock,
@@ -19,8 +25,10 @@ const pains = [
 ];
 
 const Problem = () => {
+  const gridRef = useScrollAnimation();
+
   return (
-    <section id="problema" className="relative py-0">
+    <section id="problema" className="relative py-[95px]">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">El problema</span>
@@ -30,11 +38,13 @@ const Problem = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div ref={gridRef} className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pains.map((pain, i) => (
             <div
               key={i}
-              className="group relative p-8 rounded-2xl bg-gradient-card border border-border hover:border-destructive/40 transition-smooth"
+              data-animate
+              className="group relative p-8 rounded-2xl bg-gradient-card border border-border hover:border-destructive/40 transition-smooth opacity-0"
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 grid place-items-center mb-5 group-hover:scale-110 transition-bounce">
                 <pain.icon className="w-6 h-6 text-destructive" />

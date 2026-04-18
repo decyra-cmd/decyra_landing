@@ -1,11 +1,27 @@
-import { useEffect, useRef, useState } from "react";
-import { LayoutDashboard, FileBarChart, GitBranch, Sparkles, CheckCircle2 } from "lucide-react";
-import dashboardImg from "@/assets/showcase-dashboard.jpg";
-import reportsImg from "@/assets/showcase-reports.jpg";
-import rulesImg from "@/assets/showcase-rules.jpg";
-import aiImg from "@/assets/showcase-ai.jpg";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import {
+  CheckCircle2,
+  FileBarChart,
+  GitBranch,
+  LayoutDashboard,
+  Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 
-const slides = [
+type Slide = {
+  icon: LucideIcon;
+  tag: string;
+  title: string;
+  headline: ReactNode;
+  description: string;
+  highlights: string[];
+  media: {
+    type: "image" | "video";
+    src: string;
+  };
+};
+
+const slides: Slide[] = [
   {
     icon: LayoutDashboard,
     tag: "Dashboard",
@@ -16,14 +32,17 @@ const slides = [
       </>
     ),
     description:
-      "Visualiza KPIs críticos en tiempo real con dashboards configurables por rol. OEE, disponibilidad, rendimiento y calidad sin esperas.",
+      "Convierte datos en decisiones accionables, priorizadas por impacto económico en tiempo real.",
     highlights: [
-      "OEE, rendimiento, disponibilidad y calidad en una sola vista",
-      "Vistas configurables por rol y línea",
-      "Datos refrescados al instante desde planta",
-      "Alertas visuales sobre desviaciones críticas",
+      "KPIs de planta visualizados por línea, turno y producto",
+      "Priorizadas por impacto económico, no por ruido de datos",
+      "Búsqueda de raíces causas integrada en la UI",
+      "Alertas inteligentes con contexto operativo",
     ],
-    image: dashboardImg,
+    media: {
+      type: "image",
+      src: "/Centro-decision.png",
+    },
   },
   {
     icon: FileBarChart,
@@ -35,14 +54,17 @@ const slides = [
       </>
     ),
     description:
-      "Reportes automáticos por turno, línea o producto. La IA condensa miles de eventos en un informe claro: qué pasó, por qué y qué hacer ahora.",
+      "Reportes automáticos que sintetizan la operación: qué pasó, por qué y qué hacer ahora. Menos hojas de cálculo, más tiempo en decisiones.",
     highlights: [
-      "Síntesis automática del turno generada por IA",
-      "Reportes por turno, línea o producto",
-      "Comparativas históricas y tendencias",
-      "Sin Excel, sin esperas, sin retrabajo",
+      "Síntesis automática de turnos, líneas y productos",
+      "Análisis de desviaciones y causas raíz automático",
+      "Exportación a PDF, Excel o tus sistemas integrados",
+      "Historiales y tendencias para análisis profundo",
     ],
-    image: reportsImg,
+    media: {
+      type: "video",
+      src: "/informes-video.mp4",
+    },
   },
   {
     icon: GitBranch,
@@ -50,18 +72,21 @@ const slides = [
     title: "Modelador de Reglas",
     headline: (
       <>
-        Diseña tu lógica de negocio <span className="text-gradient">sin escribir código</span>
+        Define cómo debe reaccionar tu planta, <span className="text-gradient">sin código</span>
       </>
     ),
     description:
-      "Si pasa X, dispara Y, notifica a Z. Crea flujos de automatización industriales con un editor visual potente y accesible para todo el equipo.",
+      "Crea la lógica de decisión de tu operación de forma visual. Diseña reglas que transforman datos en acciones concretas, sin depender de desarrollos técnicos.",
     highlights: [
-      "Editor visual con nodos y conexiones",
-      "Disparadores por evento, umbral o tiempo",
-      "Acciones, notificaciones y escalado automáticos",
-      "Versionado y pruebas antes de producción",
+      "Creación de reglas con drag & drop",
+      "Configura condición + acción + impacto económico",
+      "Activación y desactivación instantánea",
+      "Vista previa del comportamiento antes de aplicar",
     ],
-    image: rulesImg,
+    media: {
+      type: "image",
+      src: "/modelador-reglas.png",
+    },
   },
   {
     icon: Sparkles,
@@ -80,7 +105,10 @@ const slides = [
       "Contexto operativo para cada sugerencia",
       "Aprendizaje continuo con tus propios datos",
     ],
-    image: aiImg,
+    media: {
+      type: "image",
+      src: "/sugerencias-reglas-ia.png",
+    },
   },
 ];
 
@@ -91,8 +119,8 @@ const Showcase = () => {
   const scrollToSlide = (i: number) => {
     const section = sectionRef.current;
     if (!section) return;
+
     const total = section.offsetHeight - window.innerHeight;
-    // Aim for the middle of slide i
     const target = section.offsetTop + (total * (i + 0.5)) / slides.length;
     window.scrollTo({ top: target, behavior: "smooth" });
   };
@@ -104,13 +132,9 @@ const Showcase = () => {
 
       const rect = section.getBoundingClientRect();
       const viewportH = window.innerHeight;
-      // Total scrollable distance inside the section (height - viewport)
       const total = section.offsetHeight - viewportH;
-      // Progress: how far we've scrolled into the sticky section (0 → 1)
       const scrolled = Math.min(Math.max(-rect.top, 0), total);
       const progress = total > 0 ? scrolled / total : 0;
-
-      // Map progress to slide index
       const idx = Math.min(slides.length - 1, Math.floor(progress * slides.length));
       setActiveIndex(idx);
     };
@@ -127,18 +151,16 @@ const Showcase = () => {
       className="relative"
       style={{ height: `${slides.length * 100}vh` }}
     >
-      <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-gradient-glow opacity-30 blur-3xl pointer-events-none" />
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <div className="pointer-events-none absolute left-0 top-1/2 h-[500px] w-[500px] -translate-y-1/2 bg-gradient-glow opacity-30 blur-3xl" />
 
         <div className="container relative mx-auto px-6">
-          {/* Section header */}
           <div className="mb-6">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+            <span className="text-xs font-semibold uppercase tracking-widest text-primary">
               Producto real
             </span>
           </div>
 
-          {/* Module menu */}
           <nav
             aria-label="Módulos"
             className="mb-10 flex flex-wrap gap-x-1 gap-y-2 border-b border-border"
@@ -146,6 +168,7 @@ const Showcase = () => {
             {slides.map((slide, i) => {
               const Icon = slide.icon;
               const isActive = i === activeIndex;
+
               return (
                 <button
                   key={i}
@@ -153,12 +176,10 @@ const Showcase = () => {
                   onClick={() => scrollToSlide(i)}
                   aria-current={isActive ? "true" : undefined}
                   className={`relative flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors duration-300 ${
-                    isActive
-                      ? "text-primary"
-                      : "text-muted-foreground hover:text-foreground"
+                    isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  <Icon className="w-4 h-4" strokeWidth={1.75} />
+                  <Icon className="h-4 w-4" strokeWidth={1.75} />
                   <span>{slide.title}</span>
                   <span
                     className={`absolute left-0 right-0 -bottom-px h-0.5 rounded-full transition-all duration-500 ${
@@ -172,71 +193,183 @@ const Showcase = () => {
             })}
           </nav>
 
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Left: text content (crossfades) */}
-            <div className="lg:col-span-5 relative min-h-[460px]">
+          <div className="grid items-center gap-12 lg:grid-cols-12">
+            <div className="relative min-h-[460px] lg:col-span-5">
               {slides.map((slide, i) => {
                 const Icon = slide.icon;
                 const isActive = i === activeIndex;
+
                 return (
                   <div
                     key={i}
                     className={`absolute inset-0 transition-all duration-700 ease-out ${
-                      isActive
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4 pointer-events-none"
+                      isActive ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-4 opacity-0"
                     }`}
                     aria-hidden={!isActive}
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 grid place-items-center">
-                        <Icon className="w-5 h-5 text-primary" strokeWidth={1.75} />
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="grid h-10 w-10 place-items-center rounded-lg border border-primary/30 bg-primary/10">
+                        <Icon className="h-5 w-5 text-primary" strokeWidth={1.75} />
                       </div>
-                      <span className="text-[10px] font-semibold tracking-widest uppercase text-primary/80 px-2.5 py-1 rounded-full border border-primary/30 bg-primary/5">
+                      <span className="rounded-full border border-primary/30 bg-primary/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-primary/80">
                         {slide.tag}
                       </span>
                     </div>
-                    <h2 className="font-display text-4xl md:text-5xl font-bold leading-tight">
+                    <h2 className="font-display text-4xl font-bold leading-tight md:text-5xl">
                       {slide.headline}
                     </h2>
-                    <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
+                    <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                       {slide.description}
                     </p>
                     <ul className="mt-8 space-y-3">
-                      {slide.highlights.map((h, j) => (
+                      {slide.highlights.map((highlight, j) => (
                         <li key={j} className="flex items-start gap-3">
                           <CheckCircle2
-                            className="w-5 h-5 text-primary mt-0.5 shrink-0"
+                            className="mt-0.5 h-5 w-5 shrink-0 text-primary"
                             strokeWidth={2}
                           />
-                          <span className="text-foreground/90">{h}</span>
+                          <span className="text-foreground/90">{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 );
               })}
-
             </div>
 
-            {/* Right: image (crossfades) */}
-            <div className="lg:col-span-7 relative">
-              <div className="absolute -inset-4 bg-gradient-primary opacity-20 blur-3xl rounded-3xl" />
-              <div className="relative aspect-[16/10] rounded-2xl overflow-hidden border border-border shadow-elegant glow-border bg-background">
-                {slides.map((slide, i) => (
-                  <img
-                    key={i}
-                    src={slide.image}
-                    alt={`${slide.title} — ${slide.tag}`}
-                    width={1600}
-                    height={1000}
-                    loading="lazy"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
-                      i === activeIndex ? "opacity-100" : "opacity-0"
-                    }`}
-                    aria-hidden={i !== activeIndex}
-                  />
-                ))}
+            <div className="relative lg:col-span-7">
+              <div className="absolute -inset-4 rounded-3xl bg-gradient-primary opacity-20 blur-3xl" />
+              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border bg-slate-100 shadow-elegant glow-border">
+                {slides.map((slide, i) => {
+                  const mediaClassName = `absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out ${
+                    i === activeIndex ? "opacity-100" : "opacity-0"
+                  }`;
+                  const isDecisionCenter = slide.media.src === "/Centro-decision.png";
+                  const isRuleModeler = slide.media.src === "/modelador-reglas.png";
+                  const isRuleSuggestions = slide.media.src === "/sugerencias-reglas-ia.png";
+                  const isAiSuggestions = slide.media.src === "/sugerencias-ia.png";
+
+                  if (slide.media.type === "video") {
+                    return (
+                      <video
+                        key={i}
+                        src={slide.media.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        className={mediaClassName}
+                        aria-hidden={i !== activeIndex}
+                      />
+                    );
+                  }
+
+                  if (isDecisionCenter) {
+                    return (
+                      <div
+                        key={i}
+                        className={`absolute inset-0 flex items-center justify-center p-5 transition-opacity duration-700 ease-out md:p-6 ${
+                          i === activeIndex ? "opacity-100" : "opacity-0"
+                        }`}
+                        aria-hidden={i !== activeIndex}
+                      >
+                        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-100 px-5 shadow-[0_16px_36px_rgba(15,23,42,0.08)] md:px-8">
+                          <img
+                            src={slide.media.src}
+                            alt={`${slide.title} - ${slide.tag}`}
+                            width={1600}
+                            height={1000}
+                            loading="lazy"
+                            className="max-h-full max-w-full scale-[1.4] object-contain"
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (isAiSuggestions) {
+                    return (
+                      <div
+                        key={i}
+                        className={`absolute inset-0 flex items-center justify-center p-5 transition-opacity duration-700 ease-out md:p-6 ${
+                          i === activeIndex ? "opacity-100" : "opacity-0"
+                        }`}
+                        aria-hidden={i !== activeIndex}
+                      >
+                        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-100 px-5 shadow-[0_16px_36px_rgba(15,23,42,0.08)] md:px-8">
+                          <img
+                            src={slide.media.src}
+                            alt={`${slide.title} - ${slide.tag}`}
+                            width={1600}
+                            height={1000}
+                            loading="lazy"
+                            className="max-h-full max-w-full scale-[1.7] object-contain"
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (isRuleModeler) {
+                    return (
+                      <div
+                        key={i}
+                        className={`absolute inset-0 flex items-center justify-center p-5 transition-opacity duration-700 ease-out md:p-6 ${
+                          i === activeIndex ? "opacity-100" : "opacity-0"
+                        }`}
+                        aria-hidden={i !== activeIndex}
+                      >
+                        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-100 px-5 shadow-[0_16px_36px_rgba(15,23,42,0.08)] md:px-8">
+                          <img
+                            src={slide.media.src}
+                            alt={`${slide.title} - ${slide.tag}`}
+                            width={1600}
+                            height={1000}
+                            loading="lazy"
+                            className="max-h-full max-w-full scale-[1.8] object-contain"
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  if (isRuleSuggestions) {
+                    return (
+                      <div
+                        key={i}
+                        className={`absolute inset-0 flex items-center justify-center p-5 transition-opacity duration-700 ease-out md:p-6 ${
+                          i === activeIndex ? "opacity-100" : "opacity-0"
+                        }`}
+                        aria-hidden={i !== activeIndex}
+                      >
+                        <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-slate-100 px-5 shadow-[0_16px_36px_rgba(15,23,42,0.08)] md:px-8">
+                          <img
+                            src={slide.media.src}
+                            alt={`${slide.title} - ${slide.tag}`}
+                            width={1600}
+                            height={1000}
+                            loading="lazy"
+                            className="max-h-full max-w-full scale-[1.4] object-contain"
+                          />
+                        </div>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <img
+                      key={i}
+                      src={slide.media.src}
+                      alt={`${slide.title} - ${slide.tag}`}
+                      width={1600}
+                      height={1000}
+                      loading="lazy"
+                      className={mediaClassName}
+                      aria-hidden={i !== activeIndex}
+                    />
+                  );
+                })}
               </div>
             </div>
           </div>
