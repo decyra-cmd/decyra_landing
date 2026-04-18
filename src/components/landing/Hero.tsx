@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, PlayCircle, Sparkles, AlertTriangle } from "lucide-react";
-import dashboardHero from "@/assets/dashboard-hero.jpg";
+import dashboardHero from "@/assets/dashboard-hero.png";
 import DemoRequestDialog from "./DemoRequestDialog";
 
 const Hero = () => {
