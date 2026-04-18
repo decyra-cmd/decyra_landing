@@ -52,7 +52,7 @@ const Hero = () => {
         </p>
 
         {/* Factory background + Dashboard window mockup */}
-        <div className="mt-16 relative max-w-5xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <div className="mt-16 relative max-w-6xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
           {/* Factory backdrop */}
           <div className="relative rounded-3xl overflow-hidden border border-border shadow-elegant">
             <img
@@ -60,14 +60,14 @@ const Hero = () => {
               alt="Planta industrial con líneas de producción automatizadas"
               width={1600}
               height={1024}
-              className="w-full h-[420px] md:h-[520px] object-cover"
+              className="w-full h-[520px] md:h-[680px] object-cover"
             />
             {/* Dark overlay for contrast */}
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-electric/10" />
 
             {/* macOS-style window with dashboard */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] md:w-[78%] animate-float">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[92%] md:w-[88%] animate-float">
               <div className="absolute -inset-6 bg-gradient-primary opacity-40 blur-3xl rounded-3xl" />
               <div className="relative rounded-xl overflow-hidden border border-border/80 shadow-elegant glow-border bg-card">
                 {/* macOS title bar */}
