@@ -88,6 +88,15 @@ const Showcase = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const scrollToSlide = (i: number) => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const total = section.offsetHeight - window.innerHeight;
+    // Aim for the middle of slide i
+    const target = section.offsetTop + (total * (i + 0.5)) / slides.length;
+    window.scrollTo({ top: target, behavior: "smooth" });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const section = sectionRef.current;
@@ -123,11 +132,45 @@ const Showcase = () => {
 
         <div className="container relative mx-auto px-6">
           {/* Section header */}
-          <div className="mb-10">
+          <div className="mb-6">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">
               Producto real
             </span>
           </div>
+
+          {/* Module menu */}
+          <nav
+            aria-label="Módulos"
+            className="mb-10 flex flex-wrap gap-x-1 gap-y-2 border-b border-border"
+          >
+            {slides.map((slide, i) => {
+              const Icon = slide.icon;
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => scrollToSlide(i)}
+                  aria-current={isActive ? "true" : undefined}
+                  className={`relative flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors duration-300 ${
+                    isActive
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <Icon className="w-4 h-4" strokeWidth={1.75} />
+                  <span>{slide.title}</span>
+                  <span
+                    className={`absolute left-0 right-0 -bottom-px h-0.5 rounded-full transition-all duration-500 ${
+                      isActive
+                        ? "bg-primary opacity-100 shadow-[0_0_12px_hsl(var(--primary)/0.6)]"
+                        : "bg-transparent opacity-0"
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </nav>
 
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left: text content (crossfades) */}
