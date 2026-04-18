@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
-import decyraLogo from "@/assets/decyra-logo-full.png";
-import decyraIcon from "@/assets/decyra-icon.png";
+import decyraLogo from "@/assets/decyra-logo-full.svg";
 import DemoRequestDialog from "./DemoRequestDialog";
 
 const Navbar = () => {
