@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import decyraLogo from "@/assets/decyra-logo-full.png";
+import decyraLogo from "@/assets/decyra-logo-full.svg";
 import DemoRequestDialog from "./DemoRequestDialog";
 
 const Navbar = () => {
@@ -12,7 +12,7 @@ const Navbar = () => {
             alt="Logo DECYRA"
             width={140}
             height={36}
-            className="h-9 w-auto object-contain"
+            className="h-9 w-auto object-contain text-foreground"
           />
         </a>
 

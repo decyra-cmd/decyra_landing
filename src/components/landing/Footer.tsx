@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import decyraLogo from "@/assets/decyra-logo-full.png";
+import decyraLogo from "@/assets/decyra-logo-full.svg";
 
 const Footer = () => {
   return (
