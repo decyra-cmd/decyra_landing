@@ -5,7 +5,6 @@ import Solution from "@/components/landing/Solution";
 import Features from "@/components/landing/Features";
 import Showcase from "@/components/landing/Showcase";
 import Benefits from "@/components/landing/Benefits";
-import SocialProof from "@/components/landing/SocialProof";
 import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
 
@@ -20,7 +19,6 @@ const Index = () => {
         <Features />
         <Showcase />
         <Benefits />
-        <SocialProof />
         <CTA />
       </main>
       <Footer />

@@ -6,14 +6,14 @@ const perks = ["Demo personalizada", "Sin compromiso", "Setup en días, no meses
 
 const CTA = () => {
   return (
-    <section id="cta" className="relative py-[95px]">
+    <section id="cta" className="relative py-16 md:py-[95px]">
       <div className="container mx-auto px-6">
-        <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-gradient-card border border-primary/30 p-12 md:p-16 text-center shadow-elegant">
+        <div className="relative max-w-5xl mx-auto rounded-3xl overflow-hidden bg-gradient-card border border-primary/30 p-8 sm:p-12 md:p-16 text-center shadow-elegant">
           <div className="absolute inset-0 grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-gradient-glow opacity-70 blur-3xl" />
 
           <div className="relative">
-            <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
               Empieza a tomar decisiones<br />
               <span className="text-gradient">con datos hoy</span>
             </h2>

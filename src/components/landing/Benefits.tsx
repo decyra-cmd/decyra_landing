@@ -41,10 +41,10 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section id="beneficios" className="relative py-[95px] overflow-hidden">
+    <section id="beneficios" className="relative py-16 md:py-[95px] overflow-hidden">
       <div className="absolute inset-0 grid-pattern opacity-30 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
       <div className="container relative mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">Beneficios</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
             Resultados que se notan en <span className="text-gradient">semanas</span>

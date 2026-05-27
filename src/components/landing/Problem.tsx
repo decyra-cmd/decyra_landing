@@ -28,9 +28,9 @@ const Problem = () => {
   const gridRef = useScrollAnimation();
 
   return (
-    <section id="problema" className="relative py-[95px]">
+    <section id="problema" className="relative py-16 md:py-[95px]">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">El problema</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
             La fábrica genera datos.<br />
@@ -38,12 +38,12 @@ const Problem = () => {
           </h2>
         </div>
 
-        <div ref={gridRef} className="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div ref={gridRef} className="grid sm:grid-cols-2 md:grid-cols-4 gap-5 max-w-7xl mx-auto">
           {pains.map((pain, i) => (
             <div
               key={i}
               data-animate
-              className="group relative p-8 rounded-2xl bg-gradient-card border border-border hover:border-destructive/40 transition-smooth opacity-0"
+              className="group relative p-6 md:p-8 rounded-2xl bg-gradient-card border border-border hover:border-destructive/40 transition-smooth opacity-0"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="w-12 h-12 rounded-xl bg-destructive/10 border border-destructive/30 grid place-items-center mb-5 group-hover:scale-110 transition-bounce">

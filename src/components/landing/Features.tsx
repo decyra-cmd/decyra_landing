@@ -29,9 +29,9 @@ const features = [
 
 const Features = () => {
   return (
-    <section id="funcionalidades" className="relative py-[95px]">
+    <section id="funcionalidades" className="relative py-16 md:py-[95px]">
       <div className="container mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary">Funcionalidades</span>
           <h2 className="mt-3 font-display text-4xl md:text-5xl font-bold">
             Cuatro módulos.<br />Un objetivo: <span className="text-gradient">decidir mejor.</span>
@@ -42,7 +42,7 @@ const Features = () => {
           {features.map((f, i) => (
             <div
               key={i}
-              className="group relative p-8 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-smooth overflow-hidden"
+              className="group relative p-6 md:p-8 rounded-2xl bg-gradient-card border border-border hover:border-primary/50 transition-smooth overflow-hidden"
             >
               <div className="absolute -right-20 -top-20 w-48 h-48 bg-gradient-glow opacity-0 group-hover:opacity-100 blur-2xl transition-smooth" />
 

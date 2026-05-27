@@ -48,7 +48,7 @@ const SocialProof = () => {
   const autoplayTestimonials = useRef(Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true }));
 
   return (
-    <section className="py-[95px]">
+    <section className="py-16 md:py-[95px]">
       <div className="container mx-auto px-6">
         <p className="text-center text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-10">
           Equipos industriales que ya deciden con DECYRA

@@ -6,7 +6,7 @@ import DemoRequestDialog from "./DemoRequestDialog";
 
 const Hero = () => {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-hero">
+    <section className="relative pt-20 pb-14 md:pt-32 md:pb-20 overflow-hidden bg-gradient-hero">
       {/* Grid pattern */}
       <div className="absolute inset-0 grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_70%)]" />
       {/* Glow orbs */}
