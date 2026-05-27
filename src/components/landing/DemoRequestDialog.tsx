@@ -75,9 +75,13 @@ const DemoRequestDialog = ({ trigger }: DemoRequestDialogProps) => {
 
     setLoading(true);
     try {
-      // TODO: Conectar con el envío de email a jj._jorge@hotmail.com cuando se configure el servicio.
-      // Por ahora simulamos la petición para validar el flujo de UI.
-      await new Promise((resolve) => setTimeout(resolve, 700));
+      const res = await fetch("https://formspree.io/f/xnjrlvkr", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(parsed.data),
+      });
+
+      if (!res.ok) throw new Error();
 
       toast({
         title: "Solicitud recibida",
